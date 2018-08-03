@@ -1,0 +1,50 @@
+name:                selenium-example
+version:             0.1.0.0
+github:              "swamp-agr/selenium-example"
+license:             BSD3
+author:              "Andrey Prokopenko"
+maintainer:          "persiantiger@yandex.ru"
+copyright:           "2018 Andrey Prokopenko"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/swamp-agr/selenium-example#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- webdriver <= 0.8.5
+- text <= 1.2.3.0
+
+library:
+  source-dirs: src
+
+executables:
+  selenium-example-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - selenium-example
+
+tests:
+  selenium-example-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - selenium-example
